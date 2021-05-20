@@ -70,7 +70,7 @@ function DBGet($QI,$functions=array(),$index=array())
 		{
                     if(strlen($value) == strlen(strip_tags($value)))
                     $value=  htmlentities($value);
-			if($functions[$key] && function_exists($functions[$key]))
+			if(isset($functions[$key]) && $functions[$key] && function_exists($functions[$key]))
 			{
 				if($index_count)
 					eval('$results'.$ind.'[$this_ind][$key] = $functions[$key]($value,$key);');
